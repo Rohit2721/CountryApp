@@ -1,0 +1,17 @@
+.card{
+    margin-top: 5px;
+    margin-bottom: 7px;
+    border: 2px gray solid ;
+}
+
+.card img{
+    padding: 4px;
+}
+
+img{
+    border: 9px black solid;
+}
+
+.big{
+    margin: 10px;
+}

@@ -1,0 +1,66 @@
+<br>
+<div style="text-align: right;">
+  <button type="button" class="btn btn-info" data-toggle="popover" title="CountryApp" data-content="To filter Countries according to Currency or Language click over Currencies or Languages on below cards">
+    Need-Help!
+  </button> 
+</div>
+
+<!-- used button tag to back to previous page -->
+<button class="btn btn-secondary btn-sm" (click)="goPrevious()" style="text-align: right;">Go-Back</button><br><br>
+<br>
+<!-- currency filter applied, only will show when you click currency  -->
+<div *ngIf="selectedCurrency">
+  <h2 style="color: white;">Selected Currency: {{selectedCurrency}} </h2>
+  <button (click)="clearCurrencyFilter()">Clear</button>
+</div> 
+<!-- currency filter applied, only will show when you click language  -->
+<div *ngIf="selectedLanguage">
+  <h2 style="color: white;">Selected Language: {{selectedLanguage}} </h2>
+  <button (click)="clearLanguageFilter()">Clear</button>
+</div>
+<div class="container" style="text-align:center">
+    <div class="row" style="text-align:center">
+      <div class="col-md-12 list" style="font-size:44px; color: white;">Countries by Region</div>
+      <br><br><br><br>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div *ngFor="let country of countries"  class="col-md-6">
+            <div class="card">
+                <img [src]="country.flag" class="card-img-top " style="border: black 3px solid;" width="500" height="300" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Name: {{country.name}}</h5>
+                  
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Capital: {{country.capital}}</li>
+                    <li class="list-group-item">TimeZone: {{country.timezones}}</li>
+                    <li class="list-group-item">Subregion: {{country.subregion}}</li>
+                </ul>
+                <div>Filter-Out by clicking Currency or Language:-</div>
+                    <!-- To get list of countries as per currency, click on currency  -->   
+              <h5 style="font-weight: bold; text-decoration: underline; background-color: gray;">Currency: </h5>
+              <div class="hoverr">
+                <h6 *ngFor="let cur of country.currencies" (click)="getCountryByCurr(cur.code,cur.name)">
+                  <span style="cursor: pointer;"> {{cur.name}} </span>  
+              </h6>
+             </div>                  
+
+
+                <!-- To get counteries as per Language. click on language  -->
+             <h5>Languages:</h5>
+              <div class="hoverr">
+                <h6 *ngFor="let lan of country.languages" (click)="getCountryByLanguage(lan.iso639_1,lan.name)">
+                  <span style="cursor: pointer;">
+                    {{lan.name}}
+                  </span>  
+              </h6>
+              </div>
+              <div class="card-body" style="border: black solid;">
+                <button class="card-link" [routerLink]="['/single-view',country.name]" style="cursor:pointer;">Click to know rest!</button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p *ngIf="selectedCurrency || selectedLanguage" class="topp">Go Top to clear filter!</p>

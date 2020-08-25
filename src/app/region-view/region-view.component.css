@@ -1,0 +1,23 @@
+.list{
+    font-size:x-large;
+    font-weight: bolder;
+}
+
+.card {
+    border: 2px solid black;
+    margin-bottom: 10px;
+    background-image: url(https://geology.com/world/public-domain-world-country-outline-map.gif);background-repeat: round;
+    
+}
+
+.card-title{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+
+
+.btn:hover {
+    background-color: teal;
+    color: #00ffff;
+}

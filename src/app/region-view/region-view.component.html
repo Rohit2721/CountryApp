@@ -1,0 +1,18 @@
+<div class="container" style="text-align:center">
+    <div class="row" style="text-align:center">
+      <div class="col-md-12 list" style="font-size: 44px;color: white;">List Of Regions</div>
+      <br><br><br><br>
+    </div>
+<!-- This view is having all given Regions, which are linked with given API to fetch countries on basis of region  -->
+
+    <div class="row" style="text-align:center" >
+        <div *ngFor="let region of allRegion" class=" col-12" style="width: 18rem;">
+            <div  class="card-body">
+               <a class="btn" (click)="openRegion(region.RGN)" style="color: #00ffff; font-size:xx-large; cursor: pointer;" >
+                {{region.RGN}}
+              </a> 
+            </div>
+        </div>
+      </div>
+    
+</div>

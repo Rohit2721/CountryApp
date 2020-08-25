@@ -1,0 +1,44 @@
+<br>
+<!-- In this view we have two buttons, one for previous view and one for home view -->
+<button class="btn btn-secondary btn-sm big" (click)="goPrevious()" style="text-align: right;">Go-Back</button>
+<button class="btn btn-secondary btn-sm" (click)="goHome()" style="text-align: right;">
+    Go-Home
+</button>
+
+<div class="container" style="text-align: center;">
+    <div class="row">
+        <div class="col-md-12" *ngFor="let con of singleCountry">
+            <div class="card">
+                <img [src]="con.flag" class="card-img-top" height="500" width="500" alt="...">
+                <div class="card-body" style="text-align: center;">
+                  <h5 class="card-title"><b><u>{{con.name}}</u></b></h5>
+                  <ul class="list-group list-group-flush" style="text-align: center;">
+                      <li class="list-group-item">Capital: {{con.capital}}</li>
+                      <li class="list-group-item">Top level Domain: {{con.topLevelDomain}}</li>
+                      <li class="list-group-item">Alpha-2code: "{{con.alpha2Code}}"</li>
+                      <li class="list-group-item">Alpha-3code: "{{con.alpha3Code}}"</li>                                                                  
+                      <li class="list-group-item">Region: {{con.region}}</li>
+                      <li class="list-group-item">Time-zone: {{con.timezones}}</li>
+                      <li class="list-group-item">Subregion: {{con.subregion}}</li>
+                      <li class="list-group-item">Population: {{con.population}}</li>
+                      <li class="list-group-item">Area: "{{con.area}}"</li>
+                      <li class="list-group-item">Numeric-Code: "{{con.numericCode}}"</li>
+                      <li class="list-group-item">Native-con: "{{con.nativeName}}"</li>
+                      <li class="list-group-item">
+                          <u>Currency of {{con.name}}: </u> <br><br>
+                          <ul *ngFor="let cur of con.currencies" > 
+                              <li class="list-group-item hov">{{cur.name}}</li>
+                          </ul>
+                      </li>
+                      <li class="list-group-item">
+                        <u>Languages of {{con.name}}: </u> <br><br>
+                        <ul *ngFor="let lan of con.languages"> 
+                            <li class="list-group-item">{{lan.name}}</li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
